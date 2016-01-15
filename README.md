@@ -1,12 +1,12 @@
 # Raman
 
-Simulation 1D/2D Raman signals via the hierarchical equation of motion approach.
+Simulate 1D/2D Raman signals via the hierarchical equation of motion approach.
 
 ## Dependence
 
 * [Lapack](http://www.netlib.org/lapack/)
 
-* [OpenBlas](http://www.openblas.net/) (or Blas)
+* [OpenBlas](http://www.openblas.net/) (or [Blas](http://www.netlib.org/blas/))
 
 * [Armadillo](http://arma.sourceforge.net/)
 
