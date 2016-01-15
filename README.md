@@ -12,6 +12,8 @@ Simulate 1D/2D Raman signals via the hierarchical equation of motion approach.
 
 * [json11](https://github.com/dropbox/json11)
 
+* [cmake](https://cmake.org/)
+
 ## Install
 
 1. git clone https://github.com/hou-dao/raman.git raman
