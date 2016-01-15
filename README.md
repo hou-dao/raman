@@ -1,6 +1,5 @@
 # Raman
 
-## Description
 Simulation 1D/2D Raman signals via the hierarchical equation of motion approach.
 
 ## Dependence
@@ -21,7 +20,9 @@ Simulation 1D/2D Raman signals via the hierarchical equation of motion approach.
 
 3. mkdir build && cmake ..
 
-4. make, the binary files are located in raman/bin
+4. make
+
+The binary files are located in raman/bin.
 
 ## Usage
 
@@ -33,4 +34,4 @@ Simulation 1D/2D Raman signals via the hierarchical equation of motion approach.
 
 ## Contact
 
-[Zhang Houdao](houdao@connect.ust.hk)
+[Zhang Houdao](mailto:houdao@connect.ust.hk)
