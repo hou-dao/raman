@@ -154,9 +154,13 @@ void resp2nd (const double w1_max, const double w2_max,
     ft_im.save("resp2nd_im.t",raw_ascii);
     
     // 2D FFT
+    ft = real(ft)*deom_c1;
     ft.row(0) *= 0.5;
     ft.col(0) *= 0.5;
-    const cx_mat& fw = ifft2(ft)*nt1*nt2*dt1*dt2;
+    const cx_mat& fw2 = imag(ifft(ft))*nt2*dt2*deom_c1;
+    const cx_mat& fw1 = ifft(fw2.st())*nt1*dt1;
+    const cx_mat& fw = fw1.st();
+    // const cx_mat& fw = ifft2(ft)*nt1*nt2*dt1*dt2;
     
     // write freq-domain signal
     const vec& fw_w1 = linspace(0.0,dw1*(nt1/2-1)/deom_cm2unit,nt1/2);
@@ -167,4 +171,5 @@ void resp2nd (const double w1_max, const double w2_max,
     fw_w2.save("resp2nd.w2",raw_ascii);
     fw_re.save("resp2nd_re.w",raw_ascii);
     fw_im.save("resp2nd_im.w",raw_ascii);
+}
 }

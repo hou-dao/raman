@@ -25,7 +25,7 @@ void resp1st (const double w_max, const int nt, const double dt,
     rhot.slice(0).set_real(exph/trace(exph));
     d.equilibrium (rhot,dt,staticErr,nk);
     for (int iado=0; iado<d.nddo; ++iado) {
-        rhot.slice(iado) = dipo0*rhot.slice(iado)-rhot.slice(iado)*dipo0;
+        rhot.slice(iado) = deom_ci*(dipo0*rhot.slice(iado)-rhot.slice(iado)*dipo0);
     }
 
     cx_vec ft = zeros<cx_vec>(nt); 
