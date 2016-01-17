@@ -8,8 +8,12 @@
         "npsd": 1,
         "pade": 2,
         "temp": 1.0,
-        "jdru": [],
-        "jsdr": [],
+        "mode": [
+            {
+                "jdru": [],
+                "jsdr": []
+            }
+        ],
 	    "etalFile": "inp_etal.mat",
 	    "etarFile": "inp_etar.mat",
 	    "etaaFile": "inp_etaa.mat",
