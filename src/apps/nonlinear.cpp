@@ -38,7 +38,7 @@ int main () {
     const int    nk = json["nonlinear"]["nk"].int_value();
     const string dip0File = json["nonlinear"]["dip0"].string_value();
     const string dip1File = json["nonlinear"]["dip1"].string_value();
-    const string dip2File = json["nonlinear"]["dip1"].string_value();
+    const string dip2File = json["nonlinear"]["dip2"].string_value();
     const string sch_hei = json["nonlinear"]["sch_hei"].string_value();
     
     cx_mat dipo0, dipo1, dipo2;
