@@ -23,11 +23,9 @@ def init (inidic):
     npsd = inidic['npsd']
     pade = inidic['pade']
     temp = inidic['temp']
-    jdru = [{'lamd':x['lamd'],'gamd':x['gamd']} for x in inidic['jdru']]
-    jsdr = [{'lams':x['lams'],'omgs':x['omgs'],'gams':x['gams']} for x in inidic['jsdr']]
 
-    ndru = len(jdru)
-    nsdr = len(jsdr)
+    ndru = max([len(m['jdru']) for m in inidic['mode']])
+    nsdr = max([len(m['jsdr']) for m in inidic['mode']])
     nper = ndru+2*nsdr+npsd
 
     delr = np.zeros(nmod,dtype=float)
@@ -39,8 +37,10 @@ def init (inidic):
     pole, resi, rn, tn = PSD (npsd,BoseFermi=1,pade=pade)
     
     for m in xrange(nmod):
+
+        jdru = inidic['mode'][m]['jdru']
     
-        for idru in xrange(ndru):
+        for idru in xrange(len(jdru)):
             lamd, gamd = jdru[idru]['lamd'], jdru[idru]['gamd']
             iper = idru
             expn[m,iper] = gamd
@@ -49,7 +49,9 @@ def init (inidic):
             etaa[m,iper] = abs(etal[m,iper])
             delr[m] += 2.*lamd*gamd/temp*rn
         
-        for isdr in xrange(nsdr):
+        jsdr = inidic['mode'][m]['jsdr']
+
+        for isdr in xrange(len(jsdr)):
             lams, omgs, gams = jsdr[isdr]['lams'], jsdr[isdr]['omgs'], jsdr[isdr]['gams']
             iper, jper = ndru+isdr*2, ndru+isdr*2+1
             etaBO = 2.*lams*omgs*omgs*gams
